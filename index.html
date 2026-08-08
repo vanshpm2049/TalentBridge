@@ -14,7 +14,7 @@
   --amber:#F5A623;--amber2:#E6950E;
   --bg:#F4F7FB;--card:#FFFFFF;
   --text:#16213A;--muted:#5B6B82;--light:#9AAAC2;
-  --border:#E0E8F0;
+  --border:#E0E8F0;--danger:#E5484D;
   --radius:12px;--radius-lg:20px;--radius-sm:8px;
   --shadow:0 4px 20px rgba(14,31,77,0.08);
   --shadow-lg:0 12px 40px rgba(14,31,77,0.14);
@@ -42,6 +42,7 @@ nav.scrolled{box-shadow:var(--shadow)}
 .btn-primary:hover{background:var(--navy2);transform:translateY(-1px);box-shadow:0 6px 20px rgba(14,31,77,0.22)}
 .btn-teal{background:var(--teal);color:#fff}
 .btn-teal:hover{background:var(--teal2);transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,180,166,0.3)}
+.btn-teal:disabled{opacity:.6;cursor:not-allowed;transform:none;box-shadow:none}
 .btn-amber{background:var(--amber);color:#fff}
 .btn-amber:hover{background:var(--amber2);transform:translateY(-1px)}
 .btn-lg{padding:15px 32px;font-size:16px;border-radius:var(--radius)}
@@ -151,7 +152,7 @@ p.section-sub{font-size:17px;color:var(--muted);max-width:560px;line-height:1.7}
 .prereg-blob{position:absolute;border-radius:50%;opacity:.08}
 .prereg-blob-1{width:500px;height:500px;background:var(--teal);top:-150px;right:-100px}
 .prereg-blob-2{width:350px;height:350px;background:var(--amber);bottom:-80px;left:-80px}
-.prereg-inner{max-width:700px;margin:0 auto;text-align:center;position:relative;z-index:1}
+.prereg-inner{max-width:760px;margin:0 auto;text-align:center;position:relative;z-index:1}
 .prereg-inner h2{font-family:'Syne',sans-serif;font-size:clamp(30px,4vw,48px);font-weight:800;color:#fff;margin-bottom:16px;line-height:1.15}
 .prereg-inner p{font-size:17px;color:rgba(255,255,255,0.65);margin-bottom:40px}
 
@@ -160,7 +161,7 @@ p.section-sub{font-size:17px;color:var(--muted);max-width:560px;line-height:1.7}
 .reg-tab{flex:1;padding:12px;text-align:center;font-size:14px;font-weight:600;border-radius:var(--radius-sm);cursor:pointer;transition:all .2s;color:rgba(255,255,255,0.5);border:none;background:transparent}
 .reg-tab.active{background:#fff;color:var(--navy)}
 
-/* FORM */
+/* SIMPLE FORM (Recruiter / College) */
 .reg-form{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:var(--radius-lg);padding:36px;text-align:left;backdrop-filter:blur(20px)}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .form-group{margin-bottom:18px}
@@ -170,12 +171,6 @@ p.section-sub{font-size:17px;color:var(--muted);max-width:560px;line-height:1.7}
 .form-group select option{background:var(--navy);color:#fff}
 .form-group input:focus,.form-group select:focus{border-color:var(--teal);background:rgba(255,255,255,0.12)}
 .form-group select{appearance:none;cursor:pointer}
-.role-selector{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px}
-.role-opt{padding:12px;border:1.5px solid rgba(255,255,255,0.12);border-radius:var(--radius-sm);text-align:center;cursor:pointer;transition:all .2s}
-.role-opt .icon{font-size:22px;margin-bottom:4px}
-.role-opt .name{font-size:12.5px;font-weight:600;color:rgba(255,255,255,0.6)}
-.role-opt.selected,.role-opt:hover{border-color:var(--teal);background:rgba(0,180,166,0.1)}
-.role-opt.selected .name{color:var(--teal)}
 .checkbox-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:20px}
 .checkbox-row input[type=checkbox]{width:18px;height:18px;flex-shrink:0;cursor:pointer;accent-color:var(--teal);margin-top:1px}
 .checkbox-row label{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.5;cursor:pointer}
@@ -187,6 +182,84 @@ p.section-sub{font-size:17px;color:var(--muted);max-width:560px;line-height:1.7}
 .success-msg h3{font-size:20px;font-weight:700;color:#fff;margin-bottom:8px}
 .success-msg p{font-size:14px;color:rgba(255,255,255,0.6)}
 .count-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(245,166,35,0.15);border:1px solid rgba(245,166,35,0.25);padding:8px 18px;border-radius:100px;font-size:13.5px;font-weight:600;color:var(--amber);margin-bottom:24px}
+
+/* ===== STUDENT WIZARD (namespaced wz-) ===== */
+#studentWizardWrap{text-align:left}
+.wz-progress-wrap{max-width:640px;margin:0 auto 28px}
+.wz-progress-track{display:flex;align-items:center;gap:0}
+.wz-progress-step{display:flex;flex-direction:column;align-items:center;gap:8px;flex:1;position:relative}
+.wz-progress-step .wz-circle{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,0.08);border:2px solid rgba(255,255,255,0.18);display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:700;color:rgba(255,255,255,0.5);transition:all .25s;z-index:1}
+.wz-progress-step .wz-plabel{font-size:10.5px;font-weight:600;color:rgba(255,255,255,0.4);text-align:center;transition:color .25s}
+.wz-progress-step .wz-line{position:absolute;top:16px;left:50%;width:100%;height:2px;background:rgba(255,255,255,0.12);z-index:0}
+.wz-progress-step:last-child .wz-line{display:none}
+.wz-progress-step.done .wz-circle{background:var(--teal);border-color:var(--teal);color:#fff}
+.wz-progress-step.done .wz-line{background:var(--teal)}
+.wz-progress-step.active .wz-circle{background:#fff;border-color:#fff;color:var(--navy)}
+.wz-progress-step.active .wz-plabel{color:#fff}
+.wz-progress-step.done .wz-plabel{color:var(--teal)}
+
+.wz-card{background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);padding:36px;color:var(--text)}
+.wz-step-panel{display:none}
+.wz-step-panel.active{display:block;animation:wzfadein .3s ease}
+@keyframes wzfadein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.wz-step-title{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.wz-step-desc{font-size:13.5px;color:var(--muted);margin-bottom:26px}
+
+.wz-form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.wz-form-group{margin-bottom:18px}
+.wz-form-group label{display:block;font-size:13px;font-weight:600;color:var(--text);margin-bottom:7px}
+.wz-form-group .wz-hint{font-size:11.5px;color:var(--light);font-weight:500;margin-left:4px}
+.wz-form-group input,.wz-form-group select,.wz-form-group textarea{width:100%;padding:12px 14px;background:var(--bg);border:1.5px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-size:14px;font-family:'Inter',sans-serif;outline:none;transition:all .2s}
+.wz-form-group input::placeholder,.wz-form-group textarea::placeholder{color:var(--light)}
+.wz-form-group input:focus,.wz-form-group select:focus,.wz-form-group textarea:focus{border-color:var(--teal);background:#fff;box-shadow:0 0 0 3px rgba(0,180,166,0.1)}
+.wz-form-group textarea{resize:vertical;min-height:80px;line-height:1.5}
+.wz-form-group select{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235B6B82' stroke-width='1.5' fill='none' fill-rule='evenodd'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.wz-error-text{font-size:11.5px;color:var(--danger);margin-top:5px;display:none;font-weight:500}
+.wz-form-group.error input,.wz-form-group.error select{border-color:var(--danger)}
+.wz-form-group.error .wz-error-text{display:block}
+
+.wz-skill-add-row{display:flex;gap:10px;margin-bottom:14px}
+.wz-skill-add-row input{flex:1}
+.wz-skill-add-row select{width:150px}
+.wz-btn-add{padding:12px 18px;background:var(--navy);color:#fff;border:none;border-radius:var(--radius-sm);font-size:13.5px;font-weight:700;cursor:pointer;white-space:nowrap;flex-shrink:0;transition:all .2s}
+.wz-btn-add:hover{background:var(--navy2)}
+.wz-skills-list{display:flex;flex-wrap:wrap;gap:8px;min-height:36px}
+.wz-skill-chip{display:flex;align-items:center;gap:8px;background:#E7F6F4;border:1px solid rgba(0,180,166,0.25);color:var(--teal3);padding:7px 8px 7px 14px;border-radius:100px;font-size:13px;font-weight:600}
+.wz-skill-chip .wz-lvl{font-size:10.5px;font-weight:700;background:rgba(0,180,166,0.18);padding:2px 8px;border-radius:100px;text-transform:uppercase;letter-spacing:.03em}
+.wz-skill-chip .wz-rm{width:18px;height:18px;border-radius:50%;background:rgba(0,120,109,0.15);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:12px;color:var(--teal3);flex-shrink:0}
+.wz-skill-chip .wz-rm:hover{background:var(--danger);color:#fff}
+.wz-skills-empty{font-size:13px;color:var(--light);font-style:italic;padding:8px 2px}
+.wz-suggest-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.wz-suggest-pill{font-size:12px;font-weight:600;color:var(--navy2);background:var(--bg);border:1px solid var(--border);padding:5px 12px;border-radius:100px;cursor:pointer;transition:all .15s}
+.wz-suggest-pill:hover{border-color:var(--teal);color:var(--teal2)}
+
+.wz-block{border:1.5px solid var(--border);border-radius:var(--radius);padding:18px;margin-bottom:14px;position:relative;background:var(--bg)}
+.wz-block .wz-rm-block{position:absolute;top:14px;right:14px;width:24px;height:24px;border-radius:50%;background:#fff;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:13px;color:var(--muted)}
+.wz-block .wz-rm-block:hover{background:var(--danger);border-color:var(--danger);color:#fff}
+.wz-btn-add-block{width:100%;padding:13px;border:1.5px dashed var(--border);border-radius:var(--radius-sm);background:transparent;color:var(--muted);font-size:13.5px;font-weight:600;cursor:pointer;transition:all .2s}
+.wz-btn-add-block:hover{border-color:var(--teal);color:var(--teal2);background:#E7F6F4}
+.wz-check-row{display:flex;align-items:center;gap:8px;margin-top:6px}
+.wz-check-row input[type=checkbox]{width:16px;height:16px;accent-color:var(--teal);cursor:pointer}
+.wz-check-row label{font-size:12.5px;color:var(--muted);font-weight:500;cursor:pointer}
+.wz-empty-note{font-size:13px;color:var(--muted);background:var(--bg);border:1.5px dashed var(--border);border-radius:var(--radius);padding:18px;text-align:center;margin-bottom:14px}
+
+.wz-review-section{margin-bottom:22px}
+.wz-review-section h4{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--teal2);margin-bottom:10px}
+.wz-review-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px}
+.wz-review-item{font-size:13.5px;color:var(--text);padding:8px 0;border-bottom:1px solid var(--border)}
+.wz-review-item .wz-k{color:var(--muted);font-size:11.5px;display:block;margin-bottom:2px;font-weight:600}
+.wz-review-skills{display:flex;flex-wrap:wrap;gap:6px}
+.wz-review-list-item{font-size:13px;color:var(--text);background:var(--bg);border-radius:var(--radius-sm);padding:10px 12px;margin-bottom:8px}
+.wz-review-list-item b{color:var(--navy)}
+
+.wz-step-nav{display:flex;justify-content:space-between;align-items:center;margin-top:30px;padding-top:24px;border-top:1px solid var(--border)}
+.wz-btn-invisible{visibility:hidden}
+
+.wz-success-card{text-align:center;padding:30px 10px}
+.wz-success-icon{width:68px;height:68px;background:rgba(0,180,166,0.12);border:2px solid var(--teal);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:30px}
+.wz-success-card h3{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.wz-success-card p{font-size:14px;color:var(--muted);max-width:400px;margin:0 auto}
+.wz-profile-id{display:inline-block;margin-top:18px;background:var(--bg);border:1px solid var(--border);padding:8px 16px;border-radius:100px;font-size:12.5px;color:var(--navy2);font-weight:600}
 
 /* IMPACT */
 .impact{background:#fff;padding:96px 24px}
@@ -228,18 +301,19 @@ footer{background:var(--navy);padding:64px 24px 32px}
   .hero-inner,.how-grid,.ai-grid,.footer-grid{grid-template-columns:1fr}
   .hero-card{display:none}
   .features-grid,.impact-grid{grid-template-columns:1fr 1fr}
-  .timeline{flex-direction:column;gap:0}
-  .timeline::before{display:none}
-  .tl-content{padding:0 0 24px 16px}
-  .form-row{grid-template-columns:1fr}
+  .form-row,.wz-form-row{grid-template-columns:1fr}
 }
 @media(max-width:600px){
   .features-grid,.impact-grid{grid-template-columns:1fr}
   .nav-links{display:none}
   .hero-stats{flex-direction:column;gap:20px}
+  .wz-card{padding:22px 16px}
+  .wz-progress-step .wz-plabel{display:none}
+  .wz-skill-add-row{flex-wrap:wrap}
+  .wz-skill-add-row select{width:100%}
+  .wz-review-grid{grid-template-columns:1fr}
 }
 </style>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
@@ -541,7 +615,182 @@ footer{background:var(--navy);padding:64px 24px 32px}
       <button class="reg-tab" id="tabCollege" onclick="switchRegTab('college')">🏫 College</button>
     </div>
 
-    <div class="reg-form" id="regForm">
+    <!-- ===================== STUDENT WIZARD ===================== -->
+    <div id="studentWizardWrap">
+      <div class="wz-progress-wrap">
+        <div class="wz-progress-track" id="progressTrack"></div>
+      </div>
+      <div class="wz-card">
+
+        <!-- STEP 1: BASICS -->
+        <div class="wz-step-panel active" data-step="0">
+          <div class="wz-step-title">Basic Information</div>
+          <div class="wz-step-desc">Let's start with who you are and how recruiters can reach you.</div>
+          <div class="wz-form-row">
+            <div class="wz-form-group" id="g-fname"><label>First Name</label><input type="text" placeholder="Ananya" id="fname"/><div class="wz-error-text">First name is required</div></div>
+            <div class="wz-form-group" id="g-lname"><label>Last Name</label><input type="text" placeholder="Krishnan" id="lname"/><div class="wz-error-text">Last name is required</div></div>
+          </div>
+          <div class="wz-form-row">
+            <div class="wz-form-group" id="g-email"><label>Email Address</label><input type="email" placeholder="ananya@college.edu" id="email"/><div class="wz-error-text">Enter a valid email</div></div>
+            <div class="wz-form-group" id="g-phone"><label>Phone Number <span class="wz-hint">optional</span></label><input type="tel" placeholder="+91 98765 43210" id="phone"/></div>
+          </div>
+          <div class="wz-form-group" id="g-location"><label>Current City / Location</label><input type="text" placeholder="Chennai, Tamil Nadu" id="location"/><div class="wz-error-text">Location is required</div></div>
+          <div class="wz-form-group"><label>Short Bio <span class="wz-hint">optional — 1-2 lines about yourself</span></label><textarea placeholder="Final-year CS student passionate about data science and building things that scale." id="bio"></textarea></div>
+        </div>
+
+        <!-- STEP 2: EDUCATION -->
+        <div class="wz-step-panel" data-step="1">
+          <div class="wz-step-title">Education</div>
+          <div class="wz-step-desc">Tell us about your academic background.</div>
+          <div class="wz-form-group" id="g-college"><label>College / University Name</label><input type="text" placeholder="IIT Madras" id="college"/><div class="wz-error-text">College name is required</div></div>
+          <div class="wz-form-row">
+            <div class="wz-form-group" id="g-degree"><label>Degree</label>
+              <select id="degree">
+                <option value="">Select degree</option>
+                <optgroup label="Engineering">
+                  <option>B.Tech / B.E. — Computer Science</option>
+                  <option>B.Tech / B.E. — Information Technology</option>
+                  <option>B.Tech / B.E. — Electronics &amp; Communication</option>
+                  <option>B.Tech / B.E. — Electrical Engineering</option>
+                  <option>B.Tech / B.E. — Mechanical Engineering</option>
+                  <option>B.Tech / B.E. — Civil Engineering</option>
+                  <option>B.Tech / B.E. — Chemical Engineering</option>
+                  <option>B.Tech / B.E. — Other</option>
+                  <option>M.Tech / M.E.</option>
+                </optgroup>
+                <optgroup label="Management">
+                  <option>MBA / PGDM</option>
+                  <option>BBA / BBM</option>
+                </optgroup>
+                <optgroup label="Science">
+                  <option>B.Sc — Computer Science</option>
+                  <option>B.Sc — Data Science</option>
+                  <option>M.Sc</option>
+                  <option>MCA</option>
+                  <option>BCA</option>
+                </optgroup>
+                <optgroup label="Commerce &amp; Other">
+                  <option>B.Com</option>
+                  <option>B.A. / M.A.</option>
+                  <option>Other</option>
+                </optgroup>
+              </select>
+              <div class="wz-error-text">Select a degree</div>
+            </div>
+            <div class="wz-form-group" id="g-year"><label>Graduation Year</label>
+              <select id="year"><option value="">Select year</option><option>2025</option><option>2026</option><option>2027</option><option>2028</option><option>2029</option></select>
+              <div class="wz-error-text">Select graduation year</div>
+            </div>
+          </div>
+          <div class="wz-form-row">
+            <div class="wz-form-group"><label>CGPA / Percentage <span class="wz-hint">optional</span></label><input type="text" placeholder="8.9 CGPA" id="cgpa"/></div>
+            <div class="wz-form-group"><label>Class 12th Board <span class="wz-hint">optional</span></label><input type="text" placeholder="CBSE — 92%" id="board12"/></div>
+          </div>
+        </div>
+
+        <!-- STEP 3: SKILLS -->
+        <div class="wz-step-panel" data-step="2">
+          <div class="wz-step-title">Skills &amp; Domain</div>
+          <div class="wz-step-desc">Add every skill you have — our AI matches on skill relationships, not just keywords.</div>
+          <div class="wz-form-group" id="g-domain"><label>Primary Domain of Interest</label>
+            <select id="domain">
+              <option value="">Select domain</option>
+              <optgroup label="Technology">
+                <option>Software Engineering</option>
+                <option>Web Development</option>
+                <option>Data Science / Machine Learning</option>
+                <option>Artificial Intelligence</option>
+                <option>Cloud Computing / DevOps</option>
+                <option>Cybersecurity</option>
+              </optgroup>
+              <optgroup label="Business">
+                <option>Product Management</option>
+                <option>Business Analytics</option>
+                <option>Consulting</option>
+                <option>Finance</option>
+                <option>Marketing</option>
+              </optgroup>
+              <optgroup label="Core &amp; Design">
+                <option>Core Engineering</option>
+                <option>UI/UX Design</option>
+                <option>Research</option>
+                <option>Other</option>
+              </optgroup>
+            </select>
+            <div class="wz-error-text">Select a domain</div>
+          </div>
+          <div class="wz-form-group">
+            <label>Skills</label>
+            <div class="wz-skill-add-row">
+              <input type="text" placeholder="e.g. Python, Figma, SQL" id="skillInput"/>
+              <select id="skillLevel"><option value="Beginner">Beginner</option><option value="Intermediate" selected>Intermediate</option><option value="Advanced">Advanced</option><option value="Expert">Expert</option></select>
+              <button type="button" class="wz-btn-add" onclick="addSkill()">+ Add</button>
+            </div>
+            <div class="wz-skills-list" id="skillsList"><span class="wz-skills-empty">No skills added yet — add at least 3</span></div>
+            <div class="wz-suggest-row" id="suggestRow"></div>
+            <div class="wz-error-text" id="skillsError" style="margin-top:8px">Add at least 3 skills</div>
+          </div>
+        </div>
+
+        <!-- STEP 4: WORK EXPERIENCE / INTERNSHIPS -->
+        <div class="wz-step-panel" data-step="3">
+          <div class="wz-step-title">Work Experience &amp; Internships</div>
+          <div class="wz-step-desc">Add any internships, part-time jobs, or full-time roles. If this is your first experience, that's fine — just check the box below.</div>
+          <div class="wz-check-row" style="margin-bottom:16px">
+            <input type="checkbox" id="noExperience" onchange="toggleNoExperience()"/>
+            <label for="noExperience">I don't have any work experience or internships yet</label>
+          </div>
+          <div id="experienceWrap"></div>
+          <button type="button" class="wz-btn-add-block" id="addExpBtn" onclick="addExperience()">+ Add work experience / internship</button>
+        </div>
+
+        <!-- STEP 5: PROJECTS & LINKS -->
+        <div class="wz-step-panel" data-step="4">
+          <div class="wz-step-title">Projects &amp; Links</div>
+          <div class="wz-step-desc">Showcase your work — this is optional but boosts your match score significantly.</div>
+          <div id="projectsWrap"></div>
+          <button type="button" class="wz-btn-add-block" onclick="addProject()">+ Add a project</button>
+          <div style="height:8px"></div>
+          <div class="wz-form-row" style="margin-top:20px">
+            <div class="wz-form-group"><label>LinkedIn <span class="wz-hint">optional</span></label><input type="url" placeholder="linkedin.com/in/username" id="linkedin"/></div>
+            <div class="wz-form-group"><label>GitHub <span class="wz-hint">optional</span></label><input type="url" placeholder="github.com/username" id="github"/></div>
+          </div>
+          <div class="wz-form-row">
+            <div class="wz-form-group"><label>Portfolio Website <span class="wz-hint">optional</span></label><input type="url" placeholder="yourname.dev" id="portfolio"/></div>
+            <div class="wz-form-group"><label>Resume Link <span class="wz-hint">optional — Google Drive / Dropbox</span></label><input type="url" placeholder="drive.google.com/..." id="resume"/></div>
+          </div>
+        </div>
+
+        <!-- STEP 6: REVIEW -->
+        <div class="wz-step-panel" data-step="5">
+          <div class="wz-step-title">Review &amp; Submit</div>
+          <div class="wz-step-desc">Double-check your details before we add you to the database.</div>
+          <div id="reviewWrap"></div>
+          <div class="wz-form-group" style="margin-top:10px;display:flex;align-items:flex-start;gap:10px">
+            <input type="checkbox" id="agreeTerms" style="width:18px;height:18px;margin-top:2px;accent-color:var(--teal);flex-shrink:0"/>
+            <label for="agreeTerms" style="font-size:12.5px;color:var(--muted);font-weight:500">I confirm this information is accurate and consent to TalentBridge AI storing my profile to match me with recruiters, per the Privacy Policy.</label>
+          </div>
+        </div>
+
+        <!-- SUCCESS -->
+        <div class="wz-step-panel" data-step="success">
+          <div class="wz-success-card">
+            <div class="wz-success-icon">✅</div>
+            <h3>Your profile is live!</h3>
+            <p>Recruiters searching for your skill set can now discover you. We'll email you when you get shortlisted for a role.</p>
+            <div class="wz-profile-id" id="profileIdBadge"></div>
+          </div>
+        </div>
+
+        <div class="wz-step-nav" id="stepNav">
+          <button class="btn btn-outline" id="backBtn" onclick="prevStep()">← Back</button>
+          <button class="btn btn-teal" id="nextBtn" onclick="nextStep()">Continue →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== SIMPLE FORM: RECRUITER / COLLEGE ===================== -->
+    <div class="reg-form hidden" id="regForm">
       <div id="successMsg" class="success-msg">
         <div class="success-icon">✅</div>
         <h3>You're on the list!</h3>
@@ -551,142 +800,8 @@ footer{background:var(--navy);padding:64px 24px 32px}
         </div>
       </div>
       <div id="formContent">
-        <!-- Student Form -->
-        <div id="formStudent">
-          <div class="form-row">
-            <div class="form-group"><label>First Name</label><input type="text" placeholder="Ananya" id="studentFname"/></div>
-            <div class="form-group"><label>Last Name</label><input type="text" placeholder="Krishnan" id="studentLname"/></div>
-          </div>
-          <div class="form-group"><label>Email Address</label><input type="email" placeholder="ananya@college.edu" id="studentEmail"/></div>
-          <div class="form-row">
-            <div class="form-group"><label>College Name</label><input type="text" placeholder="IIT Madras" id="studentCollege"/></div>
-            <div class="form-group"><label>Graduation Year</label>
-              <select id="studentYear"><option value="">Select year</option><option>2025</option><option>2026</option><option>2027</option><option>2028</option></select>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group"><label>Degree</label>
-              <select id="studentDegree"><option value="">Select degree</option>
-                <optgroup label="Engineering">
-                  <option>B.Tech / B.E. — Computer Science</option>
-                  <option>B.Tech / B.E. — Information Technology</option>
-                  <option>B.Tech / B.E. — Electronics &amp; Communication</option>
-                  <option>B.Tech / B.E. — Electrical Engineering</option>
-                  <option>B.Tech / B.E. — Mechanical Engineering</option>
-                  <option>B.Tech / B.E. — Civil Engineering</option>
-                  <option>B.Tech / B.E. — Chemical Engineering</option>
-                  <option>B.Tech / B.E. — Aerospace Engineering</option>
-                  <option>B.Tech / B.E. — Biotechnology</option>
-                  <option>B.Tech / B.E. — Other</option>
-                  <option>M.Tech / M.E.</option>
-                  <option>Dual Degree (B.Tech + M.Tech)</option>
-                </optgroup>
-                <optgroup label="Management">
-                  <option>MBA / PGDM</option>
-                  <option>BBA / BBM</option>
-                  <option>Integrated BBA + MBA</option>
-                </optgroup>
-                <optgroup label="Science">
-                  <option>B.Sc — Computer Science</option>
-                  <option>B.Sc — Data Science</option>
-                  <option>B.Sc — Physics / Maths / Statistics</option>
-                  <option>M.Sc</option>
-                  <option>MCA</option>
-                  <option>BCA</option>
-                </optgroup>
-                <optgroup label="Commerce &amp; Economics">
-                  <option>B.Com</option>
-                  <option>M.Com</option>
-                  <option>B.A. / M.A. — Economics</option>
-                  <option>CA / CMA / CS</option>
-                </optgroup>
-                <optgroup label="Design &amp; Architecture">
-                  <option>B.Des / M.Des</option>
-                  <option>B.Arch / M.Arch</option>
-                </optgroup>
-                <optgroup label="Law &amp; Humanities">
-                  <option>LLB / LLM</option>
-                  <option>B.A. — Humanities / Social Sciences</option>
-                </optgroup>
-                <optgroup label="Medicine &amp; Pharmacy">
-                  <option>MBBS / BDS / BAMS</option>
-                  <option>B.Pharm / M.Pharm</option>
-                  <option>Nursing</option>
-                </optgroup>
-                <option>PhD / Research</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <div class="form-group"><label>Primary Domain of Interest</label>
-              <select id="studentDomain"><option value="">Select domain</option>
-                <optgroup label="Technology">
-                  <option>Software Engineering</option>
-                  <option>Web Development</option>
-                  <option>Mobile App Development</option>
-                  <option>Data Science / Machine Learning</option>
-                  <option>Artificial Intelligence</option>
-                  <option>Cloud Computing / DevOps</option>
-                  <option>Cybersecurity</option>
-                  <option>Embedded Systems / IoT</option>
-                  <option>Blockchain</option>
-                  <option>Game Development</option>
-                </optgroup>
-                <optgroup label="Core Engineering">
-                  <option>Mechanical / Manufacturing</option>
-                  <option>Civil / Structural Engineering</option>
-                  <option>Electrical / Power Systems</option>
-                  <option>Electronics / VLSI</option>
-                  <option>Chemical / Process Engineering</option>
-                  <option>Aerospace / Automotive</option>
-                  <option>Robotics &amp; Automation</option>
-                </optgroup>
-                <optgroup label="Business &amp; Management">
-                  <option>Product Management</option>
-                  <option>Business Analytics</option>
-                  <option>Strategy &amp; Consulting</option>
-                  <option>Entrepreneurship / Startups</option>
-                  <option>Operations &amp; Supply Chain</option>
-                  <option>Human Resources</option>
-                  <option>Project Management</option>
-                </optgroup>
-                <optgroup label="Finance">
-                  <option>Investment Banking</option>
-                  <option>Financial Analysis</option>
-                  <option>Equity Research</option>
-                  <option>Risk &amp; Compliance</option>
-                  <option>Fintech</option>
-                  <option>Accounting &amp; Audit</option>
-                </optgroup>
-                <optgroup label="Marketing &amp; Sales">
-                  <option>Digital Marketing</option>
-                  <option>Brand Management</option>
-                  <option>Sales &amp; Business Development</option>
-                  <option>Content &amp; Communications</option>
-                  <option>Market Research</option>
-                </optgroup>
-                <optgroup label="Design &amp; Creative">
-                  <option>UI/UX Design</option>
-                  <option>Graphic Design</option>
-                  <option>Architecture &amp; Urban Planning</option>
-                  <option>Animation &amp; Media</option>
-                </optgroup>
-                <optgroup label="Research &amp; Academia">
-                  <option>Scientific Research</option>
-                  <option>Public Policy &amp; Governance</option>
-                  <option>Social Impact / NGO</option>
-                </optgroup>
-                <optgroup label="Healthcare &amp; Pharma">
-                  <option>Healthcare Management</option>
-                  <option>Pharmaceutical / Biotech</option>
-                  <option>Clinical Research</option>
-                </optgroup>
-                <option>Other</option>
-              </select>
-            </div>
-          </div>
-        </div>
         <!-- Recruiter Form -->
-        <div id="formRecruiter" class="hidden">
+        <div id="formRecruiter">
           <div class="form-row">
             <div class="form-group"><label>Your Name</label><input type="text" placeholder="Rajesh Kumar" id="recName"/></div>
             <div class="form-group"><label>Designation</label><input type="text" placeholder="HR Manager" id="recDesig"/></div>
@@ -743,8 +858,8 @@ footer{background:var(--navy);padding:64px 24px 32px}
         </div>
 
         <div class="checkbox-row">
-          <input type="checkbox" id="agreeTerms"/>
-          <label for="agreeTerms">I agree to TalentBridge AI's <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>. I consent to receiving product updates and early access communications.</label>
+          <input type="checkbox" id="agreeTermsSimple"/>
+          <label for="agreeTermsSimple">I agree to TalentBridge AI's <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>. I consent to receiving product updates and early access communications.</label>
         </div>
         <button class="form-submit" onclick="handleRegister()">🚀 Secure My Early Access Spot</button>
         <p style="text-align:center;font-size:12px;color:rgba(255,255,255,0.3);margin-top:14px">No credit card required · Free forever for students</p>
@@ -807,7 +922,12 @@ footer{background:var(--navy);padding:64px 24px 32px}
 </div>
 
 <script>
-// NAV scroll
+/* ============== SUPABASE ============== */
+const SUPABASE_URL = 'https://gwjonkxbmkdxmtwirynq.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_xSg_kTY0YKczymAJ7Jbn7A_vYCXcAf4';
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+/* ============== NAV SCROLL ============== */
 window.addEventListener('scroll',()=>{
   document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>20);
   document.querySelector('.sticky-reg').style.opacity=window.scrollY>400?'1':'0';
@@ -815,13 +935,13 @@ window.addEventListener('scroll',()=>{
 document.querySelector('.sticky-reg').style.opacity='0';
 document.querySelector('.sticky-reg').style.transition='opacity .3s';
 
-// HOW IT WORKS steps
+/* ============== HOW IT WORKS ============== */
 function selectStep(i){
   document.querySelectorAll('.how-step').forEach((s,j)=>{s.classList.toggle('active',j===i)});
   document.querySelectorAll('#howVisual > div').forEach((v,j)=>{v.classList.toggle('hidden',j!==i)});
 }
 
-// FEATURES tab data
+/* ============== FEATURES TABS ============== */
 const featData={
   students:[
     {icon:'🤖',cls:'teal',title:'AI Resume Builder',desc:'Smart resume generator that highlights your strongest skills for each role automatically.'},
@@ -848,7 +968,6 @@ const featData={
     {icon:'🤝',cls:'amber',title:'Alumni Network',desc:'Connect alumni to mentor students and refer job opportunities back to the campus.'},
   ],
 };
-let currentTab='students';
 function renderFeatures(tab){
   const grid=document.getElementById('featuresGrid');
   grid.innerHTML=featData[tab].map(f=>`
@@ -859,7 +978,6 @@ function renderFeatures(tab){
     </div>`).join('');
 }
 function switchTab(tab){
-  currentTab=tab;
   document.querySelectorAll('.tab-btn').forEach((b,i)=>{
     const tabs=['students','recruiters','colleges'];
     b.classList.toggle('active',tabs[i]===tab);
@@ -868,38 +986,30 @@ function switchTab(tab){
 }
 renderFeatures('students');
 
-// PRE-REGISTER
+/* ============== REGISTRATION TABS (student / recruiter / college) ============== */
 let currentRegTab='student';
 function switchRegTab(tab){
   currentRegTab=tab;
   ['student','recruiter','college'].forEach(t=>{
     document.getElementById('tab'+t.charAt(0).toUpperCase()+t.slice(1)).classList.toggle('active',t===tab);
-    document.getElementById('form'+t.charAt(0).toUpperCase()+t.slice(1)).classList.toggle('hidden',t!==tab);
   });
+  const isStudent=tab==='student';
+  document.getElementById('studentWizardWrap').classList.toggle('hidden',!isStudent);
+  document.getElementById('regForm').classList.toggle('hidden',isStudent);
+  if(!isStudent){
+    document.getElementById('formRecruiter').classList.toggle('hidden',tab!=='recruiter');
+    document.getElementById('formCollege').classList.toggle('hidden',tab!=='college');
+  }
 }
-// Supabase setup
-const SUPABASE_URL = 'https://gwjonkxbmkdxmtwirynq.supabase.co';
-const SUPABASE_ANON_KEY = 'sb_publishable_xSg_kTY0YKczymAJ7Jbn7A_vYCXcAf4';
-const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
+/* ============== SIMPLE FORM SUBMIT (Recruiter / College) ============== */
 async function handleRegister(){
-  const agree=document.getElementById('agreeTerms').checked;
+  const agree=document.getElementById('agreeTermsSimple').checked;
   if(!agree){alert('Please agree to the Terms of Service to continue.');return;}
 
   let payload={type:currentRegTab};
 
-  if(currentRegTab==='student'){
-    const email=document.getElementById('studentEmail').value.trim();
-    if(!email||!email.includes('@')){alert('Please enter a valid email address.');return;}
-    payload={...payload,
-      name:document.getElementById('studentFname').value+' '+document.getElementById('studentLname').value,
-      email,
-      college:document.getElementById('studentCollege').value,
-      grad_year:document.getElementById('studentYear').value,
-      degree:document.getElementById('studentDegree').value,
-      domain:document.getElementById('studentDomain').value,
-    };
-  } else if(currentRegTab==='recruiter'){
+  if(currentRegTab==='recruiter'){
     const email=document.getElementById('recEmail').value.trim();
     if(!email||!email.includes('@')){alert('Please enter a valid email address.');return;}
     payload={...payload,
@@ -944,33 +1054,349 @@ async function handleRegister(){
   document.getElementById('successMsg').style.display='block';
   fetchRegistrationCount();
 }
-// Fetch real count from Supabase
-async function fetchRegistrationCount(){
-  const badge=document.getElementById('countBadge');
-  try{
-    const {count,error}=await supabaseClient
-      .from('registrations')
-      .select('*',{count:'exact',head:true});
-    if(error) throw error;
-    badge.innerHTML='🔥 '+count.toLocaleString()+' people already registered · Limited spots';
-  } catch(e){
-    badge.innerHTML='🔥 Join the waitlist · Limited spots';
-  }
-}
-// Run on page load, refresh every 30 seconds
-fetchRegistrationCount();
-setInterval(fetchRegistrationCount, 30000);
-
 function shareLink(){
   if(navigator.share){navigator.share({title:'TalentBridge AI',text:'Join me on the waitlist!',url:window.location.href});}
   else{navigator.clipboard.writeText(window.location.href).then(()=>alert('Link copied!'));}
 }
 
-// Animate progress bars on scroll
+/* ============== COMBINED REGISTRATION COUNT ============== */
+async function fetchRegistrationCount(){
+  const badge=document.getElementById('countBadge');
+  try{
+    const [r1,r2]=await Promise.all([
+      supabaseClient.from('registrations').select('*',{count:'exact',head:true}),
+      supabaseClient.from('student_profiles').select('*',{count:'exact',head:true}),
+    ]);
+    if(r1.error) throw r1.error;
+    const total=(r1.count||0)+(r2.error?0:(r2.count||0));
+    badge.innerHTML='🔥 '+total.toLocaleString()+' people already registered · Limited spots';
+  } catch(e){
+    badge.innerHTML='🔥 Join the waitlist · Limited spots';
+  }
+}
+fetchRegistrationCount();
+setInterval(fetchRegistrationCount, 30000);
+
+/* ============== HERO PROGRESS BARS ============== */
 const observer=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.progress-fill').forEach(el=>{el.style.width=el.style.width||'0%'});}});
 },{threshold:.3});
 document.querySelectorAll('.hero-card').forEach(el=>observer.observe(el));
+
+/* ================================================================== */
+/* ======================= STUDENT WIZARD ============================ */
+/* ================================================================== */
+const wzSteps=['Basics','Education','Skills','Experience','Projects','Review'];
+let wzCurrent=0;
+let wzSkills=[]; // {name, level}
+let wzProjectCount=0;
+let wzExpCount=0;
+let wzNoExperience=false;
+const wzSuggestedSkills=['Python','SQL','JavaScript','React','Java','Excel','Power BI','Machine Learning','Communication','Leadership','Figma','AWS','Git','Data Analysis'];
+
+function wzRenderProgress(){
+  const track=document.getElementById('progressTrack');
+  track.innerHTML=wzSteps.map((s,i)=>`
+    <div class="wz-progress-step ${i<wzCurrent?'done':i===wzCurrent?'active':''}">
+      <div class="wz-circle">${i<wzCurrent?'✓':i+1}</div>
+      <div class="wz-plabel">${s}</div>
+      <div class="wz-line"></div>
+    </div>`).join('');
+}
+
+/* --- Skills --- */
+function wzRenderSuggestions(){
+  const row=document.getElementById('suggestRow');
+  const available=wzSuggestedSkills.filter(s=>!wzSkills.some(sk=>sk.name.toLowerCase()===s.toLowerCase()));
+  row.innerHTML=available.slice(0,8).map(s=>`<span class="wz-suggest-pill" onclick="wzQuickAddSkill('${s}')">+ ${s}</span>`).join('');
+}
+function wzQuickAddSkill(name){
+  document.getElementById('skillInput').value=name;
+  addSkill();
+}
+function addSkill(){
+  const input=document.getElementById('skillInput');
+  const level=document.getElementById('skillLevel').value;
+  const name=input.value.trim();
+  if(!name)return;
+  if(wzSkills.some(s=>s.name.toLowerCase()===name.toLowerCase())){input.value='';return;}
+  wzSkills.push({name,level});
+  input.value='';
+  wzRenderSkills();
+}
+function removeSkill(idx){
+  wzSkills.splice(idx,1);
+  wzRenderSkills();
+}
+function wzRenderSkills(){
+  const list=document.getElementById('skillsList');
+  if(wzSkills.length===0){
+    list.innerHTML='<span class="wz-skills-empty">No skills added yet — add at least 3</span>';
+  } else {
+    list.innerHTML=wzSkills.map((s,i)=>`
+      <div class="wz-skill-chip">${s.name}<span class="wz-lvl">${s.level}</span><span class="wz-rm" onclick="removeSkill(${i})">✕</span></div>
+    `).join('');
+  }
+  wzRenderSuggestions();
+}
+document.getElementById('skillInput').addEventListener('keydown',e=>{
+  if(e.key==='Enter'){e.preventDefault();addSkill();}
+});
+wzRenderSkills();
+
+/* --- Work Experience / Internships --- */
+function toggleNoExperience(){
+  wzNoExperience=document.getElementById('noExperience').checked;
+  document.getElementById('experienceWrap').classList.toggle('hidden',wzNoExperience);
+  document.getElementById('addExpBtn').classList.toggle('hidden',wzNoExperience);
+  if(wzNoExperience){
+    document.querySelectorAll('.wz-exp-block').forEach(b=>b.remove());
+  }
+}
+function addExperience(){
+  wzExpCount++;
+  const id=wzExpCount;
+  const wrap=document.getElementById('experienceWrap');
+  const div=document.createElement('div');
+  div.className='wz-block wz-exp-block';
+  div.id='exp-'+id;
+  div.innerHTML=`
+    <div class="wz-rm-block" onclick="removeExperience(${id})">✕</div>
+    <div class="wz-form-row">
+      <div class="wz-form-group"><label>Role / Title</label><input type="text" placeholder="Data Analyst Intern" class="exp-title"/></div>
+      <div class="wz-form-group"><label>Company / Organization</label><input type="text" placeholder="Flipkart" class="exp-company"/></div>
+    </div>
+    <div class="wz-form-row">
+      <div class="wz-form-group"><label>Type</label>
+        <select class="exp-type">
+          <option>Internship</option>
+          <option>Full-time</option>
+          <option>Part-time</option>
+          <option>Freelance</option>
+          <option>Research Assistantship</option>
+        </select>
+      </div>
+      <div class="wz-form-group"><label>Duration</label><input type="text" placeholder="Jun 2025 – Aug 2025 (3 months)" class="exp-duration"/></div>
+    </div>
+    <div class="wz-form-group" style="margin-bottom:0"><label>What did you work on?</label><textarea placeholder="Built ETL pipelines in Python and automated weekly reporting for the analytics team." class="exp-desc"></textarea></div>
+  `;
+  wrap.appendChild(div);
+}
+function removeExperience(id){
+  document.getElementById('exp-'+id).remove();
+}
+
+/* --- Projects --- */
+function addProject(){
+  wzProjectCount++;
+  const id=wzProjectCount;
+  const wrap=document.getElementById('projectsWrap');
+  const div=document.createElement('div');
+  div.className='wz-block';
+  div.id='project-'+id;
+  div.innerHTML=`
+    <div class="wz-rm-block" onclick="removeProject(${id})">✕</div>
+    <div class="wz-form-group"><label>Project Title</label><input type="text" placeholder="Real-time Sales Dashboard" class="proj-title"/></div>
+    <div class="wz-form-group"><label>Description</label><textarea placeholder="Built a live dashboard using Python and Power BI to track regional sales..." class="proj-desc"></textarea></div>
+    <div class="wz-form-group" style="margin-bottom:0"><label>Link <span class="wz-hint">optional</span></label><input type="url" placeholder="github.com/you/project" class="proj-link"/></div>
+  `;
+  wrap.appendChild(div);
+}
+function removeProject(id){
+  document.getElementById('project-'+id).remove();
+}
+addProject(); // start with one
+
+/* --- Validation --- */
+function wzClearErrors(panel){
+  panel.querySelectorAll('.wz-form-group.error').forEach(g=>g.classList.remove('error'));
+  const se=document.getElementById('skillsError'); if(se) se.style.display='none';
+}
+function wzSetError(id){ const g=document.getElementById(id); if(g) g.classList.add('error'); }
+function wzVal(id){return document.getElementById(id).value.trim();}
+
+function wzValidateStep(i){
+  const panel=document.querySelector(`.wz-step-panel[data-step="${i}"]`);
+  wzClearErrors(panel);
+  let valid=true;
+
+  if(i===0){
+    if(!wzVal('fname')){wzSetError('g-fname');valid=false;}
+    if(!wzVal('lname')){wzSetError('g-lname');valid=false;}
+    const email=wzVal('email');
+    if(!email||!email.includes('@')||!email.includes('.')){wzSetError('g-email');valid=false;}
+    if(!wzVal('location')){wzSetError('g-location');valid=false;}
+  }
+  if(i===1){
+    if(!wzVal('college')){wzSetError('g-college');valid=false;}
+    if(!wzVal('degree')){wzSetError('g-degree');valid=false;}
+    if(!wzVal('year')){wzSetError('g-year');valid=false;}
+  }
+  if(i===2){
+    if(!wzVal('domain')){wzSetError('g-domain');valid=false;}
+    if(wzSkills.length<3){document.getElementById('skillsError').style.display='block';valid=false;}
+  }
+  /* step 3 (experience) has no hard requirement — either add entries or check "no experience" */
+  if(i===5){
+    if(!document.getElementById('agreeTerms').checked){
+      alert('Please confirm the checkbox to submit your profile.');
+      valid=false;
+    }
+  }
+  return valid;
+}
+
+/* --- Step nav --- */
+function showStep(i){
+  document.querySelectorAll('.wz-step-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelector(`.wz-step-panel[data-step="${i===wzSteps.length?'success':i}"]`).classList.add('active');
+  wzRenderProgress();
+  const backBtn=document.getElementById('backBtn');
+  const nextBtn=document.getElementById('nextBtn');
+  backBtn.classList.toggle('wz-btn-invisible',i===0);
+  if(i===5){nextBtn.textContent='🚀 Submit Profile';}
+  else{nextBtn.textContent='Continue →';}
+  if(i===wzSteps.length){document.getElementById('stepNav').style.display='none';}
+  document.querySelector('.wz-card').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function nextStep(){
+  if(!wzValidateStep(wzCurrent))return;
+  if(wzCurrent===5){ submitProfile(); return; }
+  wzCurrent++;
+  if(wzCurrent===5) renderReview();
+  showStep(wzCurrent);
+}
+function prevStep(){
+  if(wzCurrent===0)return;
+  wzCurrent--;
+  showStep(wzCurrent);
+}
+
+/* --- Review --- */
+function renderReview(){
+  const projects=[...document.querySelectorAll('#projectsWrap .wz-block')].map(p=>({
+    title:p.querySelector('.proj-title').value.trim(),
+    desc:p.querySelector('.proj-desc').value.trim(),
+    link:p.querySelector('.proj-link').value.trim(),
+  })).filter(p=>p.title);
+
+  const experience=wzNoExperience?[]:[...document.querySelectorAll('#experienceWrap .wz-exp-block')].map(p=>({
+    title:p.querySelector('.exp-title').value.trim(),
+    company:p.querySelector('.exp-company').value.trim(),
+    type:p.querySelector('.exp-type').value,
+    duration:p.querySelector('.exp-duration').value.trim(),
+    description:p.querySelector('.exp-desc').value.trim(),
+  })).filter(p=>p.title||p.company);
+
+  const wrap=document.getElementById('reviewWrap');
+  wrap.innerHTML=`
+    <div class="wz-review-section">
+      <h4>Basics</h4>
+      <div class="wz-review-grid">
+        <div class="wz-review-item"><span class="wz-k">Name</span>${wzVal('fname')} ${wzVal('lname')}</div>
+        <div class="wz-review-item"><span class="wz-k">Email</span>${wzVal('email')}</div>
+        <div class="wz-review-item"><span class="wz-k">Location</span>${wzVal('location')}</div>
+        <div class="wz-review-item"><span class="wz-k">Phone</span>${wzVal('phone')||'—'}</div>
+      </div>
+    </div>
+    <div class="wz-review-section">
+      <h4>Education</h4>
+      <div class="wz-review-grid">
+        <div class="wz-review-item"><span class="wz-k">College</span>${wzVal('college')}</div>
+        <div class="wz-review-item"><span class="wz-k">Degree</span>${wzVal('degree')}</div>
+        <div class="wz-review-item"><span class="wz-k">Graduation Year</span>${wzVal('year')}</div>
+        <div class="wz-review-item"><span class="wz-k">CGPA</span>${wzVal('cgpa')||'—'}</div>
+      </div>
+    </div>
+    <div class="wz-review-section">
+      <h4>Skills — ${wzVal('domain')}</h4>
+      <div class="wz-review-skills">${wzSkills.map(s=>`<div class="wz-skill-chip">${s.name}<span class="wz-lvl">${s.level}</span></div>`).join('')}</div>
+    </div>
+    <div class="wz-review-section">
+      <h4>Work Experience &amp; Internships</h4>
+      ${wzNoExperience?'<div class="wz-review-list-item">No experience yet — that\'s okay!</div>':
+        (experience.length? experience.map(e=>`<div class="wz-review-list-item"><b>${e.title||'Untitled role'}</b> · ${e.company||'—'} · ${e.type} — ${e.duration||'no dates given'}</div>`).join('') : '<div class="wz-review-list-item">No experience added</div>')}
+    </div>
+    <div class="wz-review-section">
+      <h4>Projects &amp; Links</h4>
+      <div class="wz-review-grid">
+        <div class="wz-review-item"><span class="wz-k">Projects added</span>${projects.length||'None'}</div>
+        <div class="wz-review-item"><span class="wz-k">GitHub</span>${wzVal('github')||'—'}</div>
+        <div class="wz-review-item"><span class="wz-k">LinkedIn</span>${wzVal('linkedin')||'—'}</div>
+        <div class="wz-review-item"><span class="wz-k">Resume</span>${wzVal('resume')||'—'}</div>
+      </div>
+    </div>
+  `;
+}
+
+/* --- Submit to Supabase --- */
+async function submitProfile(){
+  const nextBtn=document.getElementById('nextBtn');
+  nextBtn.disabled=true;
+  nextBtn.textContent='Submitting…';
+
+  const projects=[...document.querySelectorAll('#projectsWrap .wz-block')].map(p=>({
+    title:p.querySelector('.proj-title').value.trim(),
+    description:p.querySelector('.proj-desc').value.trim(),
+    link:p.querySelector('.proj-link').value.trim(),
+  })).filter(p=>p.title);
+
+  const experience=wzNoExperience?[]:[...document.querySelectorAll('#experienceWrap .wz-exp-block')].map(p=>({
+    title:p.querySelector('.exp-title').value.trim(),
+    company:p.querySelector('.exp-company').value.trim(),
+    type:p.querySelector('.exp-type').value,
+    duration:p.querySelector('.exp-duration').value.trim(),
+    description:p.querySelector('.exp-desc').value.trim(),
+  })).filter(p=>p.title||p.company);
+
+  const payload={
+    first_name:wzVal('fname'),
+    last_name:wzVal('lname'),
+    email:wzVal('email'),
+    phone:wzVal('phone')||null,
+    location:wzVal('location'),
+    bio:wzVal('bio')||null,
+    college:wzVal('college'),
+    degree:wzVal('degree'),
+    grad_year:wzVal('year'),
+    cgpa:wzVal('cgpa')||null,
+    board_12:wzVal('board12')||null,
+    domain:wzVal('domain'),
+    skills:wzSkills,
+    has_experience:!wzNoExperience && experience.length>0,
+    experience:experience,
+    projects:projects,
+    linkedin:wzVal('linkedin')||null,
+    github:wzVal('github')||null,
+    portfolio:wzVal('portfolio')||null,
+    resume_link:wzVal('resume')||null,
+  };
+
+  const {data,error}=await supabaseClient.from('student_profiles').insert([payload]).select();
+
+  if(error){
+    nextBtn.disabled=false;
+    nextBtn.textContent='🚀 Submit Profile';
+    if(error.code==='23505'){
+      alert("This email is already registered. If you'd like to update your profile, please contact support.");
+    } else {
+      alert('Something went wrong: '+error.message);
+    }
+    return;
+  }
+
+  wzCurrent=wzSteps.length;
+  const idBadge=document.getElementById('profileIdBadge');
+  if(data && data[0] && data[0].id){
+    idBadge.textContent='Profile ID: '+data[0].id;
+  } else {
+    idBadge.style.display='none';
+  }
+  showStep(wzCurrent);
+  fetchRegistrationCount();
+}
+
+wzRenderProgress();
 </script>
 </body>
 </html>
